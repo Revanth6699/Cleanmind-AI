@@ -1,0 +1,322 @@
+/* =========================
+   CleanMind AI – Base Theme
+   ========================= */
+
+:root {
+  --bg-main: #020617;
+  --bg-elevated: #020617;
+  --bg-card: rgba(15, 23, 42, 0.92);
+  --bg-card-soft: rgba(15, 23, 42, 0.85);
+
+  --border-subtle: rgba(148, 163, 184, 0.4);
+  --border-strong: rgba(148, 163, 184, 0.9);
+
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-soft: #6b7280;
+  --text-strong: #f9fafb;
+
+  --accent-emerald: #22c55e;
+  --accent-emerald-soft: rgba(34, 197, 94, 0.18);
+  --accent-cyan: #22d3ee;
+  --accent-sky: #38bdf8;
+  --danger: #ef4444;
+
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+  --shadow-glow: 0 0 0 1px rgba(56, 189, 248, 0.18),
+    0 20px 40px rgba(8, 47, 73, 0.75);
+  --shadow-subtle: 0 18px 24px rgba(15, 23, 42, 0.85);
+
+  --transition-fast: 150ms ease-out;
+  --transition-med: 220ms ease-out;
+}
+
+/* Global reset-ish */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+}
+
+/* Background gradient overlay (the fixed <div> you already have) */
+
+body > div.fixed {
+  background: radial-gradient(circle at 0% 0%, #0f172a 0, #020617 40%, #020617 70%)
+      no-repeat,
+    radial-gradient(circle at 100% 100%, #0f172a 0, #020617 40%, #020617 65%)
+      no-repeat,
+    radial-gradient(circle at 50% 0%, #22d3ee22 0, transparent 55%) no-repeat,
+    #020617;
+}
+
+/* Layout */
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(26px);
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.96),
+    rgba(15, 23, 42, 0.9),
+    transparent
+  );
+  border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+}
+
+#app-section {
+  position: relative;
+  z-index: 10;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* Glass cards */
+
+.glass {
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle at top left, #0f172a, #020617 60%);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+  transition: transform var(--transition-med), box-shadow var(--transition-med),
+    border-color var(--transition-med), background var(--transition-med);
+}
+
+.glass:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+/* Typography basics */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+/* Navbar brand */
+
+#navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#navbar .logo-badge {
+  height: 30px;
+  width: 30px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #22c55e, #22d3ee);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #020617;
+  box-shadow: 0 10px 35px rgba(34, 211, 238, 0.45);
+}
+
+/* Generic buttons (we mostly target those inside app-section) */
+
+#app-section button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 0.55rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    box-shadow var(--transition-fast), transform var(--transition-fast),
+    border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* Primary CTA – we override on specific ones via data-attrs if needed */
+
+#app-section .primary-cta,
+#app-section label span {
+  background: linear-gradient(90deg, #22c55e, #22d3ee, #38bdf8);
+  color: #020617;
+  font-weight: 600;
+  box-shadow: 0 14px 35px rgba(56, 189, 248, 0.45);
+}
+
+#app-section .primary-cta:hover,
+#app-section label span:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(56, 189, 248, 0.6);
+}
+
+/* Secondary button (like disabled download) */
+
+#app-section #download {
+  border-radius: 10px;
+  font-weight: 500;
+  background: #020617;
+  border: 1px solid rgba(51, 65, 85, 0.9);
+  color: var(--text-muted);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+}
+
+#app-section #download:not(:disabled):hover {
+  background: #0f172a;
+  border-color: rgba(148, 163, 184, 0.7);
+  color: var(--text-strong);
+}
+
+#app-section #download:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Inputs */
+
+#app-section input[type="text"],
+#app-section input[type="email"],
+#app-section input[type="password"],
+#app-section input[type="number"],
+#app-section input[type="search"],
+#app-section input[type="date"],
+#app-section select,
+#app-section textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(51, 65, 85, 0.95);
+  background: radial-gradient(circle at top left, #020617, #020617 55%);
+  color: var(--text-main);
+  font-size: 0.78rem;
+  outline: none;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+#app-section input::placeholder,
+#app-section textarea::placeholder {
+  color: var(--text-soft);
+}
+
+#app-section input:focus,
+#app-section textarea:focus,
+#app-section select:focus {
+  border-color: rgba(56, 189, 248, 0.9);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.75),
+    0 0 35px rgba(8, 47, 73, 0.8);
+  background: radial-gradient(circle at top left, #020617, #020617 60%);
+}
+
+/* Labels and small text */
+
+#app-section label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+#app-section .section-muted {
+  font-size: 0.7rem;
+  color: var(--text-soft);
+}
+
+/* Profile / quality / result modules */
+
+#profile,
+#quality,
+#result {
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+#profile .id-line {
+  font-size: 0.7rem;
+  color: var(--text-soft);
+}
+
+#profile .columns-list div {
+  padding: 0.08rem 0;
+}
+
+/* Score badge style (we rely on inline HTML; this just smooths it out) */
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 500;
+}
+
+/* Toast / notification */
+
+#toast {
+  max-width: 260px;
+  background: radial-gradient(circle at top left, #020617, #020617 65%);
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-emerald);
+  border-right: 1px solid rgba(30, 64, 175, 0.4);
+  border-top: 1px solid rgba(15, 23, 42, 0.7);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+  font-size: 0.78rem;
+  color: var(--text-strong);
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 0.8rem;
+}
+
+/* Hide utility class used by JS */
+
+.hidden {
+  display: none !important;
+}
+
+/* Simple responsive tweaks */
+
+@media (max-width: 640px) {
+  #navbar > div {
+    padding-inline: 1rem;
+  }
+
+  .glass {
+    border-radius: 16px;
+  }
+
+  #app-section {
+    padding-top: 1.5rem;
+  }
+}

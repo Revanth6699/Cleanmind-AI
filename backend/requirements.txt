@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pandas
+python-multipart
+pydantic
+openpyxl      # for Excel
+pyyaml        # for YAML
+lxml          # for XML/HTML parsing
+pdfplumber    # for simple PDF text
+python-docx   # for DOCX text
+Pillow        # for basic image loading (PNG/JPG)

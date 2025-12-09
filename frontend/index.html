@@ -1,0 +1,31 @@
+
+<!-- Tailwind for layout + utility classes -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Your custom styles -->
+<link rel="stylesheet" href="styles.css" />
+
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+  <!-- Background gradient -->
+  <div class="fixed inset-0 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
+
+  <!-- Content -->
+  <div class="relative min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <header id="navbar"></header>
+
+    <!-- Main app (always visible now) -->
+    <main id="app-section" class="flex-1 flex flex-col items-center px-4 pb-10">
+      <!-- JS will render the cleaning UI here -->
+    </main>
+
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="fixed top-4 right-4 z-50 hidden px-3 py-2 rounded-md bg-slate-900/95 border-l-4 border-emerald-500 text-xs sm:text-sm text-slate-100 shadow-lg">
+      Message
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>

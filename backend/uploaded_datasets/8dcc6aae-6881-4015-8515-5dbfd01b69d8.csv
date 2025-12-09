@@ -1,0 +1,11 @@
+CustomerID,Name,Age,Email,Country,PurchaseAmount
+101,John Doe,25,john@mail.com,USA,250
+102,Jane  , ,jane@mail.com ,United States,300
+103,Robert,17,robertmail.com,US,150
+104,Emily Stone,29,emily@mail.com,UK,450
+105,Emily Stone,29,emily@mail.com,UK,450
+106,Emily Stone,41,emily@mail.com,India,2000
+107,LARA ,23,l ara@mail.com,IND,500
+108,Chris,800,chris@mail,US,999999
+109,Sam,twenty,sam@mail.com,Canada,350
+110,sAm,23,sam@mail.com,canada,350
